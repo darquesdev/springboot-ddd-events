@@ -2,10 +2,14 @@ package ddd.demo.events.operation;
 
 import java.util.UUID;
 
-public class ExpedientOperation {
+public class ExpedientOperationImpl extends InternalExpedientOperation {
 
+    public ExpedientOperationImpl(ExpedientOperationInfoService expedientOperationInfoService) {
+        super(expedientOperationInfoService);
+    }
 
-    public String init(ExpedientOperationCommand aCommand) {
+    @Override
+    public String init(final ExpedientOperationCommand aCommand) {
 
         String operationId = UUID.randomUUID().toString();
 
@@ -24,9 +28,22 @@ public class ExpedientOperation {
                 aCommand.getArchivalCenterId()
         );
 
+        this.expedientOperationInfoService.add(new ExpedientOperationInfo(operationId));
+
         return operationId;
     }
 
-    public void execute(ExpedientOperationCommand aCommand) {
+    @Override
+    public void doTransactional(final ExpedientOperationCommand aCommand) {
+
+    }
+
+    @Override
+    public void doPost(final ExpedientOperationCommand aCommand) {
+
+    }
+
+    @Override
+    public void execute(final ExpedientOperationCommand aCommand) {
     }
 }

@@ -1,8 +1,16 @@
 package ddd.demo.events.operation;
 
-public class ExpedientOperationInfoService {
+import java.util.LinkedHashMap;
+
+public class ExpedientOperationInfoServiceImpl implements ExpedientOperationInfoService {
+
+    private LinkedHashMap<String, ExpedientOperationInfo> data = new LinkedHashMap<>();
 
     public ExpedientOperationInfo findById(String opId) {
-        return null;
+        return data.get(opId);
+    }
+
+    public void add(ExpedientOperationInfo expOpInfo){
+        data.put(expOpInfo.getId(), expOpInfo);
     }
 }

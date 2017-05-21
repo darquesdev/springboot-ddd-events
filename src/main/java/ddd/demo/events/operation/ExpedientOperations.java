@@ -2,6 +2,20 @@ package ddd.demo.events.operation;
 
 public enum ExpedientOperations {
 
-    INICIAR_INGRESO, FINALIZAR_INGRESO
+    INGRESO,
+    INICIAR_INGRESO(INGRESO), // SUBTAREAS
+    FINALIZAR_INGRESO(INGRESO); // SUBTAREAS
 
+    ExpedientOperations parent;
+
+    ExpedientOperations() {
+    }
+
+    ExpedientOperations(ExpedientOperations parent) {
+        this.parent = parent;
+    }
+
+    public ExpedientOperations parent() {
+        return parent;
+    }
 }

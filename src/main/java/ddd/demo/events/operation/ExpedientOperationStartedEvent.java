@@ -11,7 +11,7 @@ public class ExpedientOperationStartedEvent {
     private String expedientUuid;
 
     public ExpedientOperationStartedEvent(String id, ExpedientOperations operation, String expedientId,String archivalCenterId){
-        this(id, operation, createExpedientUuid(archivalCenterId, expedientId));
+        this(id, operation, ExpedientIdentifierCreator.createExpedientUuid(archivalCenterId, expedientId));
     }
 
     public ExpedientOperationStartedEvent(String id, ExpedientOperations operation, String expedientUuid) {
@@ -53,9 +53,4 @@ public class ExpedientOperationStartedEvent {
         return expedientUuid;
     }
 
-    public static String createExpedientUuid(String archiveId, String expedientId){
-        Assert.isTrue(!StringUtils.isEmpty(archiveId), "'expedientId' must not be empty");
-        Assert.isTrue(!StringUtils.isEmpty(expedientId), "'expedientId' must not be empty");
-        return archiveId + "." + expedientId;
-    }
 }

@@ -1,7 +1,14 @@
 package ddd.demo.events.operation;
 
-/**
- * Created by darques on 21/05/17.
- */
-public class AbstractExpedientOperation {
+public abstract class InternalExpedientOperation implements ExpedientOperation {
+
+    protected ExpedientOperationInfoService expedientOperationInfoService;
+
+    public InternalExpedientOperation(ExpedientOperationInfoService expedientOperationInfoService) {
+        this.expedientOperationInfoService = expedientOperationInfoService;
+    }
+
+    public abstract String init(ExpedientOperationCommand aCommand);
+    public abstract void doTransactional(ExpedientOperationCommand aCommand);
+    public abstract void doPost(ExpedientOperationCommand aCommand);
 }

@@ -1,7 +1,7 @@
 package ddd.demo.events.operation;
 
-/**
- * Created by darques on 21/05/17.
- */
 public interface ExpedientOperationInfoService {
+
+    void add(ExpedientOperationInfo expOpInfo);
+    ExpedientOperationInfo findById(String opId);
 }
