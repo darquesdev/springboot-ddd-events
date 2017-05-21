@@ -1,6 +1,6 @@
-package ddd.demo.events.springbootdddevents;
+package ddd.demo.events;
 
-import ddd.demo.events.springbootdddevents.operation.*;
+import ddd.demo.events.operation.*;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

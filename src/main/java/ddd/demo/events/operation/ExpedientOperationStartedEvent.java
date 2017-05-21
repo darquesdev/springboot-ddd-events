@@ -1,4 +1,4 @@
-package ddd.demo.events.springbootdddevents.operation;
+package ddd.demo.events.operation;
 
 
 import org.springframework.util.Assert;
